@@ -30,6 +30,15 @@ class StoreCategoryService {
     }
 
 
+    async getCategoriesByIds(categoryIds) {
+        if (!categoryIds || categoryIds.length === 0) {
+            return [];
+        }
+
+        return StoreCategoryModel.find({ _id: { $in: categoryIds } });
+    }
+
+
 }
 
 
